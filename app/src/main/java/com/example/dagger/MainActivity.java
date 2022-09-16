@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        CoffeeComponent component = DaggerCoffeeComponent.create();
+        CoffeeComponent component = DaggerCoffeeComponent.builder().sugar(2).milk(5).build();
         component.inject(this);
         //coffee.connectElectrecety();
         Log.d(TAG, "lokmane onCreate: "+coffee.getCoffeeCap());
