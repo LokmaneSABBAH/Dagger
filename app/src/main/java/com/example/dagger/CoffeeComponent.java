@@ -1,19 +1,21 @@
 package com.example.dagger;
 
 
-import javax.inject.Named;
+import javax.inject.Singleton;
 
 import dagger.BindsInstance;
 import dagger.Component;
+import dagger.Subcomponent;
 
-@Component(modules = CoffeeModule.class)
+@ActivityScope
+@Subcomponent()
 public interface CoffeeComponent {
 
     Coffee getCoffee();
 
     void inject(MainActivity mainActivity);
 
-    @Component.Builder
+    @Subcomponent.Builder
     interface Builder{
 
         @BindsInstance
@@ -21,6 +23,7 @@ public interface CoffeeComponent {
 
         @BindsInstance
         Builder milk(@Milk int milk);
+
 
         CoffeeComponent build();
 
